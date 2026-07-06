@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<title>Hospital Management System</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <h2>🏥 HMS</h2>
+
+    <button onclick="showSection('dashboard')">Dashboard</button>
+    <button onclick="showSection('doctors')">Doctors</button>
+    <button onclick="showSection('patients')">Patients</button>
+    <button onclick="showSection('appointments')">Appointments</button>
+
+    <button onclick="toggleDark()">🌙 Dark Mode</button>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<header>
+    <h2 id="title">Dashboard</h2>
+</header>
+
+<div class="container">
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="section active">
+    <div class="grid">
+        <div class="card"><h3>Doctors</h3><p id="doctorsCount">0</p></div>
+        <div class="card"><h3>Patients</h3><p id="patientsCount">0</p></div>
+        <div class="card"><h3>Appointments</h3><p id="appointmentsCount">0</p></div>
+        <div class="card"><h3>Pending</h3><p id="pendingCount">0</p></div>
+   <div class="chart-full">
+    <canvas id="statsChart"></canvas>
+</div>
+    
+</div>
+</section>
+
+<!-- DOCTORS -->
+<section id="doctors" class="section">
+<h2>Doctors</h2>
+<input
+id="doctorSearch"
+placeholder="Search Doctor..."
+onkeyup="searchDoctors()">
+
+<div class="form">
+    <input id="docName" placeholder="Name">
+    <input id="docSpecialty" placeholder="Specialty">
+    <input id="docPhone" placeholder="Phone">
+    <input id="docExp" placeholder="Experience">
+    <button onclick="addDoctor()">Add Doctor</button>
+</div>
+
+<table id="doctorsTable"></table>
+</section>
+
+<!-- PATIENTS -->
+<section id="patients" class="section">
+<h2>Patients</h2>
+
+<div class="form">
+    <input id="patName" placeholder="Name">
+    <input id="patAge" placeholder="Age">
+    <input id="patGender" placeholder="Gender">
+    <input id="patPhone" placeholder="Phone">
+    <input id="patAddress" placeholder="Address">
+    <button onclick="addPatient()">Add Patient</button>
+</div>
+
+<table id="patientsTable"></table>
+</section>
+
+<!-- APPOINTMENTS -->
+<section id="appointments" class="section">
+<h2>Appointments</h2>
+
+<div class="form">
+    <input id="appName" placeholder="Patient Name">
+    <input id="appDoctorId" placeholder="Doctor ID">
+    <input type="date" id="appDate">
+    <input type="time" id="appTime">
+    <button onclick="addAppointment()">Add Appointment</button>
+</div>
+
+<table id="appointmentsTable"></table>
+</section>
+
+</div>
+
+</main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
